@@ -1,0 +1,16 @@
+void quick_sort(vector<int>& vec, int s, int e) {
+    if (s >= e) return;
+       
+    int pivot = vec[e - 1];
+    int f = s;
+    for (int i = s; i < e - 1; i++) {
+        if (vec[i] < pivot) {
+            SWAP(f, i);
+            f++;
+        }
+    }
+        
+    SWAP(f, e - 1);
+    quick_sort(vec, s, f);
+    quick_sort(vec, f + 1, e);
+}

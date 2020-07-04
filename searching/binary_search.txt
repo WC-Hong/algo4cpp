@@ -1,0 +1,8 @@
+int binary_search(vector<int>& vec, int s, int e, int target) {
+    if (s >= e) return -1;
+        
+    int mid = (s + e) >> 1;
+    if (target < vec[mid]) return binary_search(vec, s, mid, target);
+    else if (target > vec[mid]) return binary_search(vec, mid + 1, e, target);
+    else return mid;
+}
